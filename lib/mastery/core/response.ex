@@ -12,7 +12,7 @@ defmodule Mastery.Core.Response do
       email: email,
       answer: answer,
       correct: template.checker.(question.substitutions, answer),
-      timestamp: DateTime.utc_now
+      timestamp: DateTime.utc_now()
     }
   end
 end

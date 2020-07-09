@@ -1,7 +1,7 @@
 defmodule Mastery.Core.Question do
   alias Mastery.Core.Template
 
-  defstruct  ~w[asked substitutions template]a
+  defstruct ~w[asked substitutions template]a
 
   def new(%Template{} = template) do
     template.generators
@@ -16,6 +16,7 @@ defmodule Mastery.Core.Question do
   defp choose(choices) when is_list(choices) do
     Enum.random(choices)
   end
+
   defp choose(generator) when is_function(generator) do
     generator.()
   end
