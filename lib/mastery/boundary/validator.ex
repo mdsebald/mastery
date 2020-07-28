@@ -13,7 +13,7 @@ defmodule Mastery.Boundary.Validator do
   end
 
   def check(true = _valid, _message), do: :ok
-  def chack(false = _valid, message), do: message
+  def check(false = _valid, message), do: message
 
   defp check_required_field(true = _present, fields, errors, field_name, f) do
     valid = fields |> Map.fetch!(field_name) |> f.()
@@ -21,7 +21,7 @@ defmodule Mastery.Boundary.Validator do
   end
 
   defp check_required_field(_present, _fields, errors, field_name, _f) do
-    errors ++ [{field_name, "is_required"}]
+    errors ++ [{field_name, "is required"}]
   end
 
   defp check_field(:ok, _errors, _field_name), do: :ok

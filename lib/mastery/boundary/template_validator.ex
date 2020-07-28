@@ -25,7 +25,7 @@ defmodule Mastery.Boundary.TemplateValidator do
     check(String.match?(raw, ~r{\S}), {:error, "can't be blank"})
   end
 
-  def valdiate_raw(_raw), do: {:error, "must be a string"}
+  def validate_raw(_raw), do: {:error, "must be a string"}
 
   def validate_generators(generators) when is_map(generators) do
     generators
