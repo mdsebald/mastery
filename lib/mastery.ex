@@ -6,6 +6,8 @@ defmodule Mastery do
   @moduledoc """
   Documentation for `Mastery`.
   """
+  @persistence_fn Application.get_env(:mastery, :peristence_fn)
+
   def build_quiz(fields) do
     with :ok <- QuizValidator.errors(fields),
          :ok <- GenServer.call(QuizManager, {:build_quiz, fields}),
@@ -33,8 +35,8 @@ defmodule Mastery do
     QuizSession.select_question(session)
   end
 
-  def answer_question(session, answer) do
-    QuizSession.answer_question(session, answer)
+  def answer_question(session, answer, persistence_fn \\ @persistence_fn) do
+    QuizSession.answer_question(session, answer, persistence_fn)
   end
 
   def schedule_quiz(quiz, templates, start_at, end_at) do
