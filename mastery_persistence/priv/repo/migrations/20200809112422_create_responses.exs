@@ -1,4 +1,4 @@
-defmodule MasteryPersistence.Repo.Migrations.CreateRepsonses do
+defmodule MasteryPersistence.Repo.Migrations.CreateResponses do
   use Ecto.Migration
 
   def change do

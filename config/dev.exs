@@ -13,3 +13,5 @@ config :mastery_persistence, MasteryPersistence.Repo,
   hostname: "localhost",
   username: "postgres",
   password: "postgres"
+
+config :mastery, :persistence_fn, &MasteryPersistence.record_response/2
